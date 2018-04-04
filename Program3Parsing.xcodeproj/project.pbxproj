@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		CD9310DF206F17FC006C6614 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CD9310DE206F17FC006C6614 /* main.cpp */; };
+		CDF9284D2071D20200DFC8AF /* parse.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CDF9284B2071D20200DFC8AF /* parse.cpp */; };
+		CDF9284F2071DDFC00DFC8AF /* lex.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CDF9284E2071DDFC00DFC8AF /* lex.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +27,11 @@
 /* Begin PBXFileReference section */
 		CD9310DB206F17FC006C6614 /* Program3Parsing */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Program3Parsing; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD9310DE206F17FC006C6614 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		CDF9284A2071AB1A00DFC8AF /* projlex.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = projlex.h; sourceTree = "<group>"; };
+		CDF9284B2071D20200DFC8AF /* parse.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = parse.cpp; sourceTree = "<group>"; };
+		CDF9284C2071D20200DFC8AF /* parse.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = parse.h; sourceTree = "<group>"; };
+		CDF9284E2071DDFC00DFC8AF /* lex.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = lex.cpp; sourceTree = "<group>"; };
+		CDF928502071DE6900DFC8AF /* parsetree.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = parsetree.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +65,11 @@
 			isa = PBXGroup;
 			children = (
 				CD9310DE206F17FC006C6614 /* main.cpp */,
+				CDF9284B2071D20200DFC8AF /* parse.cpp */,
+				CDF9284C2071D20200DFC8AF /* parse.h */,
+				CDF928502071DE6900DFC8AF /* parsetree.h */,
+				CDF9284A2071AB1A00DFC8AF /* projlex.h */,
+				CDF9284E2071DDFC00DFC8AF /* lex.cpp */,
 			);
 			path = Program3Parsing;
 			sourceTree = "<group>";
@@ -118,7 +130,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CDF9284F2071DDFC00DFC8AF /* lex.cpp in Sources */,
 				CD9310DF206F17FC006C6614 /* main.cpp in Sources */,
+				CDF9284D2071D20200DFC8AF /* parse.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
