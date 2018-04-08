@@ -90,7 +90,7 @@ int main(int argc, const char * argv[]) {
     
     istream *in = &cin;
     ifstream file;
-    bool tFlag = false, fFlag = false;
+    bool tFlag = false;//, fFlag = false;
     
     int tokCount = 0;
     int stringCount = 0;
@@ -102,24 +102,27 @@ int main(int argc, const char * argv[]) {
         string arg( argv[i] );
         if( arg == "-t" ) { tFlag = true; }
         else if( arg[0] == '-' ) {
-            cerr << "INVALID FLAG " << arg << endl; return 0;
+            cerr << "UNKNOWN FLAG " << arg << endl; return 0;
         } else if ( in != &cin ) {
-            cerr << "TOO MANY FILE NAMES" << endl;  return 0;
+            cerr << "TOO MANY FILENAMES" << endl;  return 0;
         } else {
             file.open(arg);
             if( file.is_open() == false ) {
-                cerr << "UNABLE TO OPEN " << arg << endl; return 0;
+                cerr << "COULD NOT OPEN " << arg << endl; return 0;
             }
             in = &file;
         }
     }
     
 //------------------------------------------------------------------------
-    cout<<"getting next token\n";
+    //cout<<"getting next token\n";
     while( (tok = getNextToken(in, &lineNumber)) != DONE && tok != ERR ){
-        cout<<"-----starting cout token\n";
+        //cout<<"-----starting cout token\n";
+        
+/*
         if( tFlag )
             cout << tok << endl;
+*/
         
         ++tokCount;
         if( tok == SCONST ) {
@@ -129,15 +132,13 @@ int main(int argc, const char * argv[]) {
         else if( tok == IDENT )
             identCount[ tok.GetLexeme() ]++;
     }
-    cout<<"end of token\n";
-
-//TOKEN = error on tokens
+    
     if( tok == ERR ) {
         cout << "Error on line " << lineNumber << " (" << tok.GetLexeme() << ")" << endl;
         return 0;
     }
-    cout<<"end of error token\n";
-    cout<<"starting common token\n";
+    //cout<<"end of error token\n";
+    //cout<<"starting common token\n";
 //TOKEN = for finding the most common identifier
     if( tFlag && identCount.size() > 0 ) {
         cout << "Most Common Identifier: ";
@@ -160,9 +161,9 @@ int main(int argc, const char * argv[]) {
         }
         cout << endl;
     }
-    cout<<"ending of common token\n";
+    //cout<<"ending of common token\n";
     
-    cout<<"starting stats token\n";
+    //cout<<"starting stats token\n";
 //TOKEN = total lines/tokens/strings and length of long string
     if( tFlag ) {
         cout << "Total lines: " << lineNumber << endl;
@@ -179,10 +180,11 @@ int main(int argc, const char * argv[]) {
             }
         }
     }
-    cout<<"ending stats token\n";
+    //cout<<"ending stats token\n";
     
     
 //------------------------------------------------------------------------
+/*
     if (tFlag) {
         cout<<"Trace activated\n";
     }
@@ -190,6 +192,7 @@ int main(int argc, const char * argv[]) {
     x = "10*2.5+1.25+(1.25*3)";
     double result = parseFormula();
     cout<<result<<endl;
+*/
     
     return 0;
 }

@@ -28,10 +28,7 @@ namespace Parser {
 
 static int error_count = 0;
 
-void
-ParseError(int line, string msg)
-{
-}
+void ParseError(int line, string msg) {}
 
 ParseTree *Prog(istream *in, int *line)
 {
@@ -60,45 +57,31 @@ ParseTree *Slist(istream *in, int *line) {
     }
     
     ParseTree *sl = Slist(in, line);
-    if( sl == 0 )
-        return s;
+    if( sl == 0 ) { return s; }
     return new StmtList(s, sl);
 }
 
-ParseTree *Stmt(istream *in, int *line) {
-    return 0;
-}
+ParseTree *Stmt(istream *in, int *line) { return 0; }
 
-ParseTree *VarStmt(istream *in, int *line) {
-    return 0;
-}
+ParseTree *VarStmt(istream *in, int *line) { return 0; }
 
-ParseTree *SetStmt(istream *in, int *line) {
-    return 0;
-}
+ParseTree *SetStmt(istream *in, int *line) { return 0; }
 
 ParseTree *PrintStmt(istream *in, int *line) {
     int l = *line;
-    
     ParseTree *ex = Expr(in, line);
     if( ex == 0 ) {
         ParseError(*line, "Missing expression after print");
         return 0;
     }
-    
     return new Print(l, ex);
 }
 
-ParseTree *RepeatStmt(istream *in, int *line) {
-    return 0;
-}
+ParseTree *RepeatStmt(istream *in, int *line) { return 0; }
 
 ParseTree *Expr(istream *in, int *line) {
     ParseTree *t1 = Term(in, line);
-    if( t1 == 0 ) {
-        return 0;
-    }
-    
+    if( t1 == 0 ) { return 0; }
     while ( true ) {
         Token t = Parser::GetNextToken(in, line);
         
@@ -106,7 +89,6 @@ ParseTree *Expr(istream *in, int *line) {
             Parser::PushBackToken(t);
             return t1;
         }
-        
         ParseTree *t2 = Term(in, line);
         if( t2 == 0 ) {
             ParseError(*line, "Missing expression after operator");
@@ -122,15 +104,9 @@ ParseTree *Expr(istream *in, int *line) {
     }
 }
 
-ParseTree *Term(istream *in, int *line) {
-    return 0;
-}
+ParseTree *Term(istream *in, int *line) { return 0; }
 
-ParseTree *Factor(istream *in, int *line) {
-    return 0;
-}
+ParseTree *Factor(istream *in, int *line) { return 0; }
 
-ParseTree *Primary(istream *in, int *line) {
-    return 0;
-}
+ParseTree *Primary(istream *in, int *line) { return 0; }
 
